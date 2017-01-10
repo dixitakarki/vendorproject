@@ -36,8 +36,6 @@ $config = new Zend_Config(
         )
     )
 );
- 
 $db = Zend_Db::factory($config->database);
-
 $application->bootstrap()
             ->run();
