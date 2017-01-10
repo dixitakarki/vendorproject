@@ -7,7 +7,8 @@ class AuthenticationController extends Zend_Controller_Action
 	}
     public function loginAction()
     {
-	$this->view->hello="welcome Celli";
+	$this->view->hello="welcome dixita";
+	$this->view->hello="welcome dixita";
 	$this->view->title="Vendor Request System";
         }
 		}
