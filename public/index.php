@@ -37,5 +37,7 @@ $config = new Zend_Config(
     )
 );
 $db = Zend_Db::factory($config->database);
+Zend_Db_Table::setDefaultAdapter($db);
+Zend_Registry::set('db', $db);	
 $application->bootstrap()
             ->run();
