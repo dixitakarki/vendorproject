@@ -22,5 +22,22 @@ $application = new Zend_Application(
     APPLICATION_ENV,
     APPLICATION_PATH . '/configs/application.ini'
 );
+
+$config = new Zend_Config(
+    array(
+        'database' => array(
+            'adapter' => 'PDO_MYSQL',
+            'params'  => array(
+                'host'     => 'localhost',
+                'dbname'   => 'vendors_stage',
+                'username' => 'root',
+                'password' => '',
+            )
+        )
+    )
+);
+ 
+$db = Zend_Db::factory($config->database);
+
 $application->bootstrap()
             ->run();
