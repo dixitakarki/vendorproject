@@ -1,0 +1,389 @@
+<?php echo $this->render('header.phtml');?>
+<?php echo $this->render('navigator.phtml');?>
+<div class="container">
+	<form method="POST" id='newRequestForm' name='newRequestForm' action='#' enctype="multipart/form-data">
+	    
+		<div id='requestNumber'>
+			<b>Request Number: N/A</b>
+		</div>
+		<div class="panel panel-info">
+			<div class="panel-heading"><h4>Company Details</h4></div>
+
+		
+		<div class="panel-body" id="company">
+		    <div class="row">
+		        <div class="col-md-6 pull-left">
+					<div class="form-group">
+						<label for="companyCode">Company Code *</label>
+						<input type="text" name="companyCode" value="<?= isset($this->params['companyCode']) ?  $this->params['companyCode'] : '4440' ?>" />
+		             </div>
+					 <div class="form-group">
+						<label title='One Time Vendor?  Estimated Annual Spend?' for="businessJustification">Business Justification * </label>
+						<textarea title='One Time Vendor?  Estimated Annual Spend?' id="businessJustification" 
+		            	name="businessJustification" ><?= isset($this->params['businessJustification']) ?  
+		            		$this->params['businessJustification'] : 'One Time Vendor?  Estimated Annual Spend?' ?></textarea>    
+					</div>
+				</div>
+		        <div class="col-md-6 pull-right">
+					<div class="form-group">
+						<label for="purchasingOrganisation">Purchasing Organisation *</label>
+						<input type="text" name="purchasingOrganisation" value="<?= isset($this->params['purchasingOrganisation']) ?  $this->params['purchasingOrganisation'] : 'UK01' ?>" />
+			        </div>
+					<div class="form-group">
+						<label for="categoryId">Category *</label>
+						<select name="categoryId" id="categoryId">
+							<?php 
+							foreach ($this->categories as $category){
+
+								$selected = (isset($this->params['categoryId']) && $this->params['categoryId'] == $category->getCategoryId()) ? 'selected="selected"' : '';
+								echo "<option value='".$category->getCategoryId()."' ".$selected.">".$category->getCategoryName()."</option>";
+							}
+							?>
+
+						</select>
+					</div>
+					<div class="form-group">
+						 <label for="freightForwarder">Freight Forwarder</label>
+						<select id='freightForwarder' name='freightForwarder' >
+							<option value='0' <?= (isset($this->params['freightForwarder']) && $this->params['freightForwarder'] == 0) ? 'selected="selected"' : '';?>>No</option>
+							<option value='1' <?= (isset($this->params['freightForwarder']) && $this->params['freightForwarder'] == 1) ? 'selected="selected"' : '';?>>Yes</option>
+						</select>
+					</div>
+		        </div>
+		    </div>    
+		</div>
+	</div>	
+		
+		<div class="panel panel-info">
+			<div class="panel-heading"><h4>Contact Details</h4></div>
+			
+			<div class="panel-body" id="contact">
+				<div class="row">
+				  
+					<div class="col-md-6 pull-left">
+						<div class="form-group">
+							<label for="name">Vendor Name *</label>
+							<input type="text" name="name" value="<?= isset($this->params['name']) ?  $this->params['name'] : '' ?>"/>
+						</div>	
+					<br/>
+					<br/>
+					<br/>
+						<div class="form-group">
+							<label for="contactAddress">Address 1 *</label>
+							<input type="textarea" name="contactAddress"  id="contactAddress" value="<?= isset($this->params['contactAddress']) ?  $this->params['contactAddress'] : '' ?>" />
+						</div>
+						<div class="form-group">
+							<label for="contactAddress2">Address 2 </label>
+							<input type="textarea" name="contactAddress2" id="contactAddress2" value="<?= isset($this->params['contactAddress2']) ?  $this->params['contactAddress2'] : '' ?>"/>
+						</div>
+						<div class="form-group">
+							<label for="contactCity">City *</label>
+							<input type="text" name="contactCity" id="contactCity" value="<?= isset($this->params['contactCity']) ?  $this->params['contactCity'] : '' ?>"/>
+						</div>
+						<div class="form-group">
+							<label for="contactCounty">County/Region *</label>
+							<input type="text" name="contactCounty" id="contactCounty" value="<?= isset($this->params['contactCounty']) ?  $this->params['contactCounty'] : '' ?>"/>
+						</div>
+						<div class="form-group">
+							<label for="contactPostcode">Postcode *</label>
+							<input type="text" name="contactPostcode" id="contactPostcode" value="<?= isset($this->params['contactPostcode']) ?  $this->params['contactPostcode'] : '' ?>"/>
+						</div>
+						
+					</div>
+					
+					<div class="col-md-6 pull-right">
+						<div class="form-group">
+							<label for="contactCountry">Country *</label>
+							<select name="contactCountry" id="contactCountry" alt-input='contactAlt' class='countryField'>
+								<?php 
+								
+								$this->params['contactCountry'] = (isset($this->params['contactCountry'])) ? $this->params['contactCountry'] : 'gb';
+								
+								foreach($this->countries as $code => $name) {
+									
+									$selected = (isset($this->params['contactCountry']) && $this->params['contactCountry'] == $code) ? 'selected="selected"' : '';
+									
+									echo '<option value="'.$code.'" '.$selected.' >'.$name.'</option>';
+								  
+								} ?>
+
+							</select> 
+						</div>
+						<div class="form-group">
+							<label for="contactOtherCountry" class='otherCountryField contactAlt'>Please Specify *</label>
+							<input type="text" class='otherCountryField contactAlt' name="contactOtherCountry" id="contactOtherCountry" <?= isset($this->params['contactOtherCountry']) ?  $this->params['contactOtherCountry'] : '' ?>/>
+						</div>	
+						<div class="form-group">
+							<label for="contactTelephone">Telephone *</label>
+							<input type="text" name="contactTelephone" id="contactTelephone" value="<?= isset($this->params['contactTelephone']) ?  $this->params['contactTelephone'] : '' ?>"/>
+						</div>	
+						<div class="form-group">	
+							<label for="contactFax">Fax</label>
+							<input type="text" name="contactFax" id="contactFax" value="<?= isset($this->params['contactFax']) ?  $this->params['contactFax'] : '' ?>"/>
+						</div>	
+						<div class="form-group">	
+							<label title='Email for Purchase Order' for="contactEmail">E-Mail *</label>
+							<input title='Email for Purchase Order' type="text" name="contactEmail" id="contactEmail" value="<?= isset($this->params['contactEmail']) ?  $this->params['contactEmail'] : '' ?>" />
+						</div>	
+						<div class="form-group">	
+							<label title='10 Digits - (Only if self employed)' for="selfAssesmentTaxNo">Self Assessment Tax No. *</label>
+							<input title='10 Digits - (Only if self employed)' type="text" name="selfAssesmentTaxNo" id="selfAssesmentTaxNo" value="<?= isset($this->params['selfAssesmentTaxNo']) ?  $this->params['selfAssesmentTaxNo'] : '' ?>"/> 
+						</div>						
+						<div class="form-group">	
+							<label title='9 Numeric digits, may be prefixed by GB - Required for any UK company (not self employed)' for="vatNumber">Vat Number *</label>
+							<input title='9 Numeric digits, may be prefixed by GB - Required for any UK company (not self employed)' type="text" name="vatNumber" id="vatNumber" value="<?= isset($this->params['vatNumber']) ?  $this->params['vatNumber'] : '' ?>"/>
+						</div>
+					</div>   
+				</div> 
+		 </div>
+		</div>
+		
+		 <div class="panel panel-info">
+			<div class="panel-heading"><h4>Remit Details (if different)</h4></div>
+		 
+		 <div class="panel-body" id="remit">
+		     <div class="row">
+		        <div class="col-md-6 pull-left">
+					<div class="form-group">
+						<label for='sameAsAddress'>Same As Above</label>
+						<input type='checkbox' value='1' id='sameAsAddress' id="sameAsAddress"/>
+				    </div>
+					<div class="form-group">
+						<label for="remitAddress">Remit Address *</label>
+						<input type="text" name="remitAddress" id="remitAddress" value="<?= isset($this->params['remitAddress']) ?  $this->params['remitAddress'] : '' ?>"/>
+		            </div>
+					<div class="form-group">
+						<label for="remitAddress2">Remit Address 2</label>
+						<input type="text" name="remitAddress2" id="remitAddress2" value="<?= isset($this->params['remitAddress2']) ?  $this->params['remitAddress2'] : '' ?>"/>
+		            </div>
+					<div class="form-group">
+						<label for="remitCity">City *</label>
+						<input type="text" name="remitCity" id="remitCity" value="<?= isset($this->params['remitCity']) ?  $this->params['remitCity'] : '' ?>"/>
+		            </div>
+					<div class="form-group">
+						<label for="remitCounty">County *</label>
+						<input type="text" name="remitCounty" id="remitCounty" value="<?= isset($this->params['remitCounty']) ?  $this->params['remitCounty'] : '' ?>"/>
+		            </div>
+					<div class="form-group">
+						<label for="remitPostcode">Postcode *</label>
+						<input type="text" name="remitPostcode" id="remitPostcode" value="<?= isset($this->params['remitPostcode']) ?  $this->params['remitPostcode'] : '' ?>"/> 
+					</div>
+			   </div>
+		        
+		        <div class="col-md-6 pull-right">
+					<div class="form-group">
+						
+						<label class='remitCountry' for="remitCountry">Country *</label>
+							<select class='countryField remitCountry' alt-input ='remitAlt' name="remitCountry" id="remitCountry">
+								 
+								<?php 
+								
+								$this->params['remitCountry'] = (isset($this->params['remitCountry'])) ? $this->params['remitCountry'] : 'gb';
+								
+								foreach($this->countries as $code => $name) {
+									
+									$selected = (isset($this->params['remitCountry']) && $this->params['remitCountry'] == $code) ? 'selected="selected"' : '';
+									
+									echo '<option value="'.$code.'" '.$selected.' >'.$name.'</option>';
+								  
+								} ?>
+							
+							</select>
+					</div>
+					<div class="form-group">
+						<label for="remitOtherCountry" class='otherCountryField remitAlt'>Please Specify *</label>
+						<input type="text" class='otherCountryField remitAlt' name="remitOtherCountry" id="remitOtherCountry" value="<?= isset($this->params['remitOtherCountry']) ?  $this->params['remitOtherCountry'] : '' ?>"/> 
+					</div>
+					<div class="form-group">
+						<label for="remitTelephone">Telephone *</label>
+						<input type="text" name="remitTelephone" id="remitTelephone" value="<?= isset($this->params['remitTelephone']) ?  $this->params['remitTelephone'] : '' ?>"/>
+					</div>
+					<div class="form-group">
+						<label for="remitFax">Fax</label>
+						<input type="text" name="remitFax" id="remitFax" value="<?= isset($this->params['remitFax']) ?  $this->params['remitFax'] : '' ?>"/>
+					</div>
+					<div class="form-group">
+						<label title='Email for Remittance' for="remitEmail">E-Mail *</label>
+						<input title='Email for Remittance' type="text" name="remitEmail" id="remitEmail" value="<?= isset($this->params['remitEmail']) ?  $this->params['remitEmail'] : '' ?>"/>
+					</div>
+				</div>
+		    </div>
+		 </div>
+		</div>
+		
+		<div class="panel panel-info">
+			<div class="panel-heading"><h4>Payment Terms</h4></div>
+		 
+		 <div class="panel-body" id="paymentTerms">
+		    <div class="row">
+		        <div class="col-md-6 pull-left">
+					<div class="form-group">
+						<label for="agreedPaymentTerms">Agreed Payment Terms *</label>
+						<select id="agreedPaymentTerms" name="agreedPaymentTerms">
+						
+							<?php 
+							
+							$this->params['agreedPaymentTerms'] = (isset($this->params['agreedPaymentTerms'])) ? $this->params['agreedPaymentTerms'] : 'n060';
+							
+							foreach($this->paymentTerms as $code => $name) {
+								
+								$selected = (isset($this->params['agreedPaymentTerms']) && $this->params['agreedPaymentTerms'] == $code) ? 'selected="selected"' : '';
+								
+								echo '<option value="'.$code.'" '.$selected.' >'.$name.'</option>';
+							  
+							} ?>
+
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="incoTerms">INCO Terms *</label>
+						<input type="text" name="incoTerms" value="<?= isset($this->params['incoTerms']) ?  $this->params['incoTerms'] : 'DDP/GB' ?>" />
+					</div>
+					<div class="form-group">
+						<label for="currency">Currency *</label>
+						<select name="currency" id="currency" >
+						
+							<?php 
+							
+							$this->params['currency'] = (isset($this->params['currency'])) ? $this->params['currency'] : 'gbp';
+							
+							foreach($this->currencies as $code => $name) {
+								
+								$selected = (isset($this->params['currency']) && $this->params['currency'] == $code) ? 'selected="selected"' : '';
+								
+								echo '<option value="'.$code.'" '.$selected.' >'.$name.'</option>';
+							  
+							} ?>
+						
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="currency" class='otherCurrency'>Please Specify *</label>
+						<input type='text' name='otherCurrency' value='<?php echo (isset($this->params['otherCurrency']))?$this->params['otherCurrency']:'';?>' class='otherCurrency' id='otherCurrency'/>
+					</div>
+			  </div>
+		        
+		        <div class="col-md-6 pull-right">
+					<div class="form-group">
+						<label for="directDebit">Direct Debit</label>
+						<?php
+						//strip off text from code
+						$paymentType = (isset($this->params['paymentType']))?$this->params['paymentType']:'';
+										
+						$checked = ($paymentType == 'u')?'checked':'';
+						?>
+
+						<input type="checkbox" <?=$checked?> name="directDebit" id="directDebit" value="u" />
+					</div>
+					<div class="form-group">
+						<label for="paymentType">Payment Type</label>
+						<input type="text" disabled name="paymentType" id="paymentType" value="bp" />
+					</div>
+			   </div>
+		    </div>
+		 </div>
+		 </div>
+		 
+		 <div class="panel panel-info">
+			<div class="panel-heading"><h4>Bank Details</h4></div>
+			
+		 <div class="panel-body" id="bankDetails">
+		    <div class="row">
+		    	<p style='margin:0 0 0 15px;font-size:14px'>
+		    		<b>Backup documentation from the supplier to support the bank details is mandatory, refer to 'Help' documentation for further details</b>
+	    		</p>
+		        <div class="col-md-6 pull-left">
+					<div class="form-group">
+						<label for="bankName">Bank Name *</label>
+						<input type="text" id="bankName" name="bankName" value="<?= isset($this->params['bankName']) ?  $this->params['bankName'] : '' ?>" />
+		            </div>
+					<div class="form-group">
+						<label for="bankBranch">Bank Branch *</label>
+						<input type="text" id="bankBranch" name="bankBranch" value="<?= isset($this->params['bankBranch']) ?  $this->params['bankBranch'] : '' ?>" />
+		            </div>
+					<div class="form-group">
+						<label for="bankAddress">Bank Address *</label>
+						<input type="text" id="bankAddress" name="bankAddress" value="<?= isset($this->params['bankAddress']) ?  $this->params['bankAddress'] : '' ?>" />
+		            </div>
+					<div class="form-group">
+						<label for="bankCity">City *</label>
+						<input type="text" id="bankCity" name="bankCity" value="<?= isset($this->params['bankCity']) ?  $this->params['bankCity'] : '' ?>" />
+		            </div>
+					<div class="form-group">
+						<label for="bankPostcode">Postcode *</label>
+						<input type="text" id="bankPostcode" name="bankPostcode" value="<?= isset($this->params['bankPostcode']) ?  $this->params['bankPostcode'] : '' ?>" />
+		            </div>
+					
+		        </div>
+				
+		        <div class="col-md-6 pull-right">
+					<div class="form-group">
+						<label for="bankCounty">County/Region *</label>
+						<input type="text" id="bankCounty" name="bankCounty" value="<?= isset($this->params['bankCounty']) ?  $this->params['bankCounty'] : '' ?>" />
+		            </div>
+					<div class="form-group">
+						<label for="bankCountry">Country *</label>
+						<select name="bankCountry" id="bankCountry" alt-input='bankAlt' class='countryField'>
+							
+							<?php 
+							
+							$this->params['bankCountry'] = (isset($this->params['bankCountry'])) ? $this->params['bankCountry'] : 'gb';
+							
+							foreach($this->countries as $code => $name) {
+								
+								$selected = (isset($this->params['bankCountry']) && $this->params['bankCountry'] == $code) ? 'selected="selected"' : '';
+								
+								echo '<option value="'.$code.'" '.$selected.' >'.$name.'</option>';
+							  
+							} ?>
+							
+						</select>
+		            </div>
+					<div class="form-group">
+						<label for="bankOtherCountry" class='otherCountryField bankAlt'>Please Specify *</label>
+						<input type="text" class='otherCountryField bankAlt' name="bankOtherCountry" id="bankOtherCountry" value="<?= isset($this->params['bankOtherCountry']) ?  $this->params['bankOtherCountry'] : '' ?>" />
+		            </div>
+					<div class="form-group">
+						<label for="accountNumber">Account Number *</label>
+						<input type="text" id="accountNumber" name="accountNumber" value="<?= isset($this->params['accountNumber']) ?  $this->params['accountNumber'] : '' ?>" />
+		            </div>
+					<div class="form-group">
+						<label for="sortCode">Sort/Swift/Routing Code *</label>
+						<input type="text" id="sortCode" name="sortCode" value="<?= isset($this->params['sortCode']) ?  $this->params['sortCode'] : '' ?>" /> 
+					</div>
+				</div>
+		    </div>
+		 </div>
+		</div> 
+		 
+		 <div class="panel panel-info">
+			<div class="panel-heading"><h4>Attachment</h4></div>
+			
+		 <div class="panel-body" id="attachmentSubmit">
+		    <div class="row">
+		        <div class="col-md-6 pull-left">
+		        	<div class="form-group">
+						<label for="attachment">Attachment 1 *</label>
+						<input type="file" name="attachment" value="<?= isset($this->params['attachment']) ?  $this->params['attachment'] : '' ?>" />
+					</div>
+			   </div>
+		        <div class="col-md-6 pull-right">
+					<div class="form-group">
+						<label for="attachment2">Attachment 2</label>
+						<input type="file" name="attachment2" value="<?= isset($this->params['attachment2']) ?  $this->params['attachment2'] : '' ?>" />
+					</div>
+			  </div>
+
+		    </div>
+		 </div>
+		</div>
+		
+		<div class="row col-md-8 col-md-offset-4">
+			<button onclick='window.history.back()' class='btn btn-primary btn-lg'>Back</button>
+			<input type="reset" class='btn btn-warning btn-lg' value="Clear">
+			<input type="submit" class='btn btn-success btn-lg' value="Submit">
+		</div>
+	</form>
+</div>
+
+<?php echo $this->render('footer.phtml');?>
