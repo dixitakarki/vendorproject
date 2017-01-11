@@ -1,12 +1,19 @@
 <?php echo $this->render('header.phtml');?>
 
+<?php if(isset($this->error) &&  ($this->error != '')){?>
+  <div class="alert alert-danger alert-dismissable fade in" id="errormessage">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong> <?php echo $this->error?> </strong></div>
+<?php }else{
+  $this->error="";
+}?>
  <div class="container">
    <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="panel panel-login">
         <div class="panel-body">
           <div class="row">
-            <div class="col-lg-12">
+            <div class="col-sm-12">
               <form id="login-form" action="#" method="post" role="form" style="display: block;">
                 <h2>LOGIN</h2>
                   <div class="form-group">

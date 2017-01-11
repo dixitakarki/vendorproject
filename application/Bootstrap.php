@@ -15,5 +15,20 @@ Zend_Db_Table::setDefaultAdapter($db);
 Zend_Registry::set('db', $db);
     }
 */
+
+    public function __initSession(){
+    	try{
+    	Zend_Session::start();
+    	$usersession = new Zend_Session_Namespace('user');
+    	Zend_Session::setOptions(array('name'=>'vendorproject'));
+    }catch(Exception $e){
+    	$this->view->error=$e->getMessage();
+    }
+    }
+    protected function _initAutoload()
+    {
+        $autoloader = new Zend_Application_Module_Autoloader(array('namespace' => '', 'basePath' => APPLICATION_PATH));
+        return $autoloader;
+    }
 }
 

@@ -1,3 +1,139 @@
 
-<img src="img_avatar2.png" alt="not working"/>
-<?php echo "hello"; ?>
+<?php echo $this->render('header.phtml');?>
+<?php echo $this->render('navigator.phtml');?>
+<div class='container'>
+
+	<div class="panel panel-info">
+      <div class="panel-heading"><h4>My Pending Requests</h4></div>
+	
+		<div class="panel-body">
+		<table class='table table-hover' cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th id='id'>Id</th>
+					<th id='name'>Name</th>
+					<th id='date'>Date</th>
+					<th id='category'>Category</th>
+					<th id='status'>Status</th>
+				</tr>
+			</thead>
+		</table>
+		</div>
+	</div>
+		
+	
+	<div class="pending table-content">
+		<table class='table table-hover' cellpadding="0" cellspacing="0">
+	    	<tbody>
+				<?php
+				if(count($this->requests)>0){
+					foreach($this->requests as $request){
+						
+						echo "<tr class='requestToView' request-id='".$request->getId()."'>
+			                <td id='id'>".$request->getId()."</td>
+			                <td id='name'>".$request->getContactDetails()->getName()."</td>
+			                <td id='date'>".$request->getHeader()->getRequestedDate()."</td>
+			                <td id='category'>".$request->getHeader()->getCategory()->getCategoryName()."</td>
+			                <td id='status'>".$request->getRequestStatus()->getStatus()->getStatusDescription()."</td>
+		            	</tr>";
+					}
+				}
+	           ?>
+	        </tbody>
+	    </table>
+	</div>
+
+	<br />
+	<?php 
+		$completes = count($this->completedRequests);
+	?>
+	
+
+	<div class="panel panel-info ">
+		<div class="panel-heading"><h4>Recently Completed Requests - <?=$completes?></h4></div>
+		<div id='completedRequestsDiv' class=''>
+				<div class="completed table-header">
+					<table class='table table-hover' cellpadding="0" cellspacing="0">
+						<thead>
+							<tr >
+								<th id='id'>Id</th>
+								<th id='name'>Name</th>
+								<th id='date'>Requested Date</th>
+								<th id='category'>Category</th>
+								<th id='complete' >Completed Date</th>
+							</tr>
+						</thead>
+					</table>
+				</div>
+
+		
+			<div class="completed table-content">
+				<table class='table table-hover' cellpadding="0" cellspacing="0">
+					<tbody style='width:110%'>
+						<?php
+						if($completes>0){
+							foreach($this->completedRequests as $request){
+								
+								echo "<tr class='requestToView' request-id='".$request->getId()."'>
+									<td id='id'>".$request->getId()."</td>
+									<td id='name'>".$request->getContactDetails()->getName()."</td>
+									<td id='date'>".$request->getHeader()->getRequestedDate()."</td>
+									<td id='category'>".$request->getHeader()->getCategory()->getCategoryName()."</td>
+									<td id='complete'>".$request->getRequestStatus()->getStatusChangedDate()."</td>
+								</tr>";
+							}
+						}
+					   ?>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<br />
+	<?php 
+		$rejects = count($this->rejectedRequests);
+	?>
+	<div class="panel panel-info">
+      <div class="panel-heading"><h4>Rejected Requests - <?=$rejects?></h4></div>
+		<div id='rejectedRequestsDiv' class='<?=(0==$rejects)?'hideTable':'';?>'>
+			<div class="rejected table-header">
+				<table class='table table-hover' cellpadding="0" cellspacing="0">
+					<thead>
+						<tr >
+							<th id='id'>Id</th>
+							<th id='name'>Name</th>
+							<th id='date'>Requested Date</th>
+							<th id='comment'>Reason</th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+			
+			<div class="rejected table-content">
+				<table id='rejected-table' cellpadding="0" cellspacing="0">
+					<tbody style='width:110%'>
+						<?php
+						if($rejects > 0){
+							foreach($this->rejectedRequests as $request){
+								
+								echo "<tr class='requestToEdit' request-id='".$request->getId()."'>
+									<td id='id'>".$request->getId()."</td>
+									<td id='name'>".$request->getContactDetails()->getName()."</td>
+									<td id='date'>".$request->getHeader()->getRequestedDate()."</td>
+									<td id='comment' title='".$request->getRequestStatus()->getComments()."'>".$request->getRequestStatus()->getComments(true)."</td>
+								</tr>";
+							}
+						}
+					   ?>
+					</tbody>
+				</table>
+				<form id='rejectRequestForm' name='rejectRequestForm' action="<?=$this->baseUrl('/rejected/view');?>" method='post'>
+					<input type="hidden" name='requestId' id='requestIdRejected' value=''/>
+				</form>
+			</div>
+		</div>
+	</div>	
+</div>
+
+<?php echo $this->render('footer.phtml');?>

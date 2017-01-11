@@ -5,12 +5,24 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
-        /* Initialize action controller here */
+       $this->initView();
+	   $this->view->baseUrl=$this->_request->getBaseUrl();
     }
 
     public function indexAction()
     {
-        // action body
+    	echo "hello";
+    	
+    	$myuser=Session::getUser();
+    	$usersession=$myuser->getUsername();
+    	print_r($usersession);
+    	/*
+        if($usersession){
+        		echo "hello ".$usersession;
+        }
+        else{
+        	$this->_redirect('/login');
+        }*/
     }
 
 
