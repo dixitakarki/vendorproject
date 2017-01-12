@@ -10,7 +10,7 @@
 
 		<ul class="nav navbar-nav navbar-right">
 			  <li><a><h4 style="color:green;"><span class="glyphicon glyphicon-user"></span> Welcome <?php echo ($this->user); ?></h4></a></li>
-			  <li><a href="<?=$this->baseUrl('/authentication/logout');?>"><h4>Logout</h4></a></li>
+			  <li><a href="<?php echo $this->baseUrl ?>/authentication/logout"><h4>Logout</h4></a></li>
 		</ul>
 	</div>
 </nav>
