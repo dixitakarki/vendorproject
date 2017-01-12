@@ -11,18 +11,7 @@ class IndexController extends Zend_Controller_Action
 
     public function indexAction()
     {
-    	echo "hello";
-    	
-    	$myuser=Session::getUser();
-    	$usersession=$myuser->getUsername();
-    	print_r($usersession);
-    	/*
-        if($usersession){
-        		echo "hello ".$usersession;
-        }
-        else{
-        	$this->_redirect('/login');
-        }*/
+
     }
 
 
