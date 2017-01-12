@@ -46,9 +46,9 @@ class AuthenticationController extends Zend_Controller_Action
                 // print_r($result);
                 if ($result->isValid()) {
                  $user = User::getInstanceFromUser($result);
-                  Session::setUser($user);
-                    $myuser=Session::getUser();
-                 // print_r($myuser->getUsername());
+                  VendorSession::setUser($user);
+                    $myuser=VendorSession::getUser();
+                  print_r(VendorSession::getUser());
                     $this->_redirect('/index');
                 }
                 else {

@@ -1,13 +1,8 @@
   <?php
-  class Session{
+  class VendorSession {
   	public static function setUser(User $user){
         $userNamespace = new Zend_Session_Namespace('user');
        $userNamespace->instance=$user ;
-       $hey= $userNamespace->instance;
-       $hello=$hey->getUsername();
-       $mysession=$hello;
-        print_r("hello34323");
-        print_r($mysession);
         //$mysession= $userNamespace->instance;
     }
     public static function getUser(){
@@ -18,8 +13,10 @@
         }
 
         $userNamespace = new Zend_Session_Namespace('user');
-       // $userNamespace->lock();
-   
+        $userNamespace->lock();
+        $sessionobj=$userNamespace->instance;
+        $sessionuser=$sessionobj->getUsername();
+        return $sessionuser;
        // $output = $userNamespace->instance;
        // print_r($output->getUsername());
       // $mysession2=$mysession;
@@ -31,5 +28,13 @@
 
     }catch(Exception $e){
     }    
+}
+public function getSessionUser(){
+  
+        $userNamespace = new Zend_Session_Namespace('user');
+        $userNamespace->lock();
+        $sessionobj=$userNamespace->instance;
+        $sessionuser=$sessionobj->getUsername();
+        return $sessionuser;
 }
 }
