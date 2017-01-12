@@ -10,7 +10,7 @@ class AuthenticationController extends Zend_Controller_Action
 	}
 
 
-function loginAction()
+	function loginAction()
     {
       $flag=1;
         $this->view->error = '';
