@@ -20,9 +20,9 @@ Zend_Registry::set('db', $db);
     	try{
     	Zend_Session::start();
     	$usersession = new Zend_Session_Namespace('user');
-    	Zend_Session::setOptions(array('name'=>'vendorproject'));
+    	//Zend_Session::setOptions(array('name'=>'vendorproject'));
     }catch(Exception $e){
-    	$this->view->error=$e->getMessage();
+    	
     }
     }
     protected function _initAutoload()
