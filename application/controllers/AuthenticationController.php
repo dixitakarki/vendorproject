@@ -10,7 +10,7 @@ class AuthenticationController extends Zend_Controller_Action
 	}
 
 
-function loginAction()
+	function loginAction()
     {
       $flag=1;
         $this->view->error = '';
@@ -49,7 +49,7 @@ function loginAction()
                   Session::setUser($user);
                     $myuser=Session::getUser();
                  // print_r($myuser->getUsername());
-                    //$this->_redirect('/index');
+                    $this->_redirect('/index');
                 }
                 else {
                         throw new Exception('Incorrect username or Password, Please try again');
