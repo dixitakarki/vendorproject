@@ -123,6 +123,7 @@ label {
 	color:white;
 	font-size: 40px;
 	font-weight: normal;
+  padding-top: 10px;
 }
 
 #footer{
@@ -147,4 +148,8 @@ label {
 
 .panel-body>.row td{
 	padding:5px;
+}
+.error{
+  color:red;
+  font-weight: normal;
 }
