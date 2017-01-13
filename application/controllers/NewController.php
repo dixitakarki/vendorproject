@@ -11,10 +11,10 @@ class NewController extends Zend_Controller_Action
 
     public function indexAction()
     {
-        $a= new VendorSession();
- print_r($a->getSessionUser());
- $this->view->user=$a->getSessionUser();
-        // action body
+        // $a= new VendorSession();
+ // print_r($a->getSessionUser());
+ // $this->view->user=$a->getSessionUser();
+
 		
 		
     }
