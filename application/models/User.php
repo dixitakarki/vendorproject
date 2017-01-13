@@ -2,13 +2,13 @@
 class User extends Zend_Db_Table
 {
 	 protected $_name    = 'users';
-	private $_username;			//string
+	private $_username="guest";			//string
     private $_firstName;		//string
     private $_surname;			//string
     private $_role;				//Role
     private $_email;			//string
     private $_password;
-     public function __construct($username=''){
+     public function __construct($username='guest'){
         $this->_username=$username;
        //print_r($this->_username);
     }

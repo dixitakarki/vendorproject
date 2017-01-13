@@ -5,9 +5,14 @@ class IndexController extends Zend_Controller_Action
     {
        $this->initView();
 	   $this->view->baseUrl=$this->_request->getBaseUrl();
+       if(SessionCheck::sessionCheckSum()===0)
+        {
+            $this->_redirect('/authentication');
+        }else{
+            $this->view->user=SessionCheck::sessionCheckSum();
+        }
     }
     public function indexAction()
     {
-
     }
 }
