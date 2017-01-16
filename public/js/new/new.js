@@ -1,7 +1,11 @@
 $(document).ready(function(){	
 
 $("#directDebit").change(function () {
-   $("#bankDetails").toggle();
+   if(this.checked) {
+   $( "#bankDetails" ).hide( "slow" );}
+   else{
+	   $( "#bankDetails" ).show( "slow" );
+   }
 });
 	
 
