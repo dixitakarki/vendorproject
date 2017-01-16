@@ -123,6 +123,7 @@ label {
 	color:white;
 	font-size: 40px;
 	font-weight: normal;
+  padding-top: 10px;
 }
 
 #footer{
@@ -147,4 +148,24 @@ label {
 
 .panel-body>.row td{
 	padding:5px;
+}
+.error{
+  color:#e60000;
+  font-weight: normal;
+  height: 20px;
+  width: 70px;
+  border-radius: 2px;
+  background-color: #ffe6e6;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+  width:100px;
+}
+input [type="text"]{
+  min-width:100px;
+}
+input[type="email"]{
+  min-width: 100px;
 }
