@@ -4,13 +4,18 @@ class AuthenticationController extends Zend_Controller_Action
 	public function init(){
 		$this->initView();
 		$this->view->baseUrl=$this->_request->getBaseUrl();
-	}
+        $userNamespace = new Zend_Session_Namespace('user');
+        $sessionobj=$userNamespace->instance;
+       if(SessionCheck::sessionCheckSum()!==0){
+            $this->redirect('/index');
+        }
+}
 	public function indexAction(){
 		$this->redirect('/authentication/login');
 	}
 	function loginAction()
     {
-      $flag=1;
+        
         $this->view->error = '';
         if ($this->_request->isPost()) {
             // collect the data from the user
@@ -21,7 +26,6 @@ class AuthenticationController extends Zend_Controller_Action
             
             if (empty($username)||empty($password)) {
                 $this->view->error = 'Please provide a username or password.';
-                $flag=0;
             } else {
                 // setup Zend_Auth adapter for a database table
               try{
@@ -67,9 +71,4 @@ class AuthenticationController extends Zend_Controller_Action
         
     }
 }
-function logoutAction(){
-    $userNamespace = new Zend_Session_Namespace('user');
-        unset($userNamespace->instance);
-    $this->_redirect('/authentication');
-}
-}
+}	

@@ -123,6 +123,7 @@ label {
 	color:white;
 	font-size: 40px;
 	font-weight: normal;
+  padding-top: 10px;
 }
 
 #footer{
@@ -148,3 +149,10 @@ label {
 .panel-body>.row td{
 	padding:5px;
 }
+<<<<<<< HEAD
+=======
+.error{
+  color:red;
+  font-weight: normal;
+}
+>>>>>>> 8fc751a8c9aef554088bfeebe3809d129cda92a6

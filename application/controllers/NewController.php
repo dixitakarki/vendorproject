@@ -3,6 +3,7 @@ class NewController extends Zend_Controller_Action
 {
     public function init()
     {
+        
         $this->initView();
 		$this->view->baseUrl=$this->_request->getBaseUrl();//gives the base url 
         if(SessionCheck::sessionCheckSum()===0)
@@ -13,9 +14,7 @@ class NewController extends Zend_Controller_Action
         }
 }
     public function indexAction()
-    {
-        // action body
-		
+    {	
 		$options = Input::getOptions();
 		$this->view->categories = $options->category->toArray();	
 		$this->view->countries = $options->country->toArray();
@@ -23,5 +22,16 @@ class NewController extends Zend_Controller_Action
 		$this->view->paymentTerms = $options->payment->terms->toArray();
 		$this->view->paymentMethods = $options->payment->method->toArray();
 		
+		
+		 $session = new Zend_Session_Namespace('session');
+         if($session->errorComCode===""){
+		 $this->view->errorComCode="";
+		 }else{
+            $this->view->errorComCode=$session->errorComCode;
+            unset($session->errorComCode);
+         }
+
     }
+    
 }
+
