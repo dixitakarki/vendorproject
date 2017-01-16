@@ -16,6 +16,12 @@ class NewController extends Zend_Controller_Action
     {
         // action body
 		
+		$options = Input::getOptions();
+		$this->view->categories = $options->category->toArray();	
+		$this->view->countries = $options->country->toArray();
+		$this->view->currencies = $options->currency->toArray();
+		$this->view->paymentTerms = $options->payment->terms->toArray();
+		$this->view->paymentMethods = $options->payment->method->toArray();
 		
     }
 }

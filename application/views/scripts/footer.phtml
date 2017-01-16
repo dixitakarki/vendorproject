@@ -2,4 +2,19 @@
  copyright &copy; 2017-2018 vr system inc.
 </div>
  </body>
+ <script>
+ document.getElementById('sameAsAddress').onchange = function() {
+    document.getElementById('remitAddress').disabled = this.checked;
+	document.getElementById('remitAddress2').disabled = this.checked;
+	document.getElementById('remitCity').disabled = this.checked;
+	document.getElementById('remitCounty').disabled = this.checked;
+	document.getElementById('remitPostcode').disabled = this.checked;
+	document.getElementById('remitCountry').disabled = this.checked;
+	document.getElementById('remitTelephone').disabled = this.checked;
+	document.getElementById('remitFax').disabled = this.checked;
+	document.getElementById('remitEmail').disabled = this.checked;
+}
+
+</script>
+ 
 </html>

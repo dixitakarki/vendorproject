@@ -36,10 +36,9 @@
 							<td><label for="categoryId">Category *</label></td>
 							<td><select name="categoryId" id="categoryId">
 								<?php 
-								foreach ($this->categories as $category){
-
-									$selected = (isset($this->params['categoryId']) && $this->params['categoryId'] == $category->getCategoryId()) ? 'selected="selected"' : '';
-									echo "<option value='".$category->getCategoryId()."' ".$selected.">".$category->getCategoryName()."</option>";
+								foreach($this->categories as $code => $name) {
+																		
+									echo '<option value="'.$code.'"  >'.$name.'</option>';
 								}
 								?>
 
@@ -97,25 +96,20 @@
 						<table>
 							<tr>
 								<td><label for="contactCountry">Country *</label></td>
-								<td><select name="contactCountry" id="contactCountry" alt-input='contactAlt' class='countryField'>
+								<td>
+									<select name="contactCountry" id="contactCountry" alt-input='contactAlt' class='countryField'>
 									<?php 
-									
-									$this->params['contactCountry'] = (isset($this->params['contactCountry'])) ? $this->params['contactCountry'] : 'gb';
-									
+																		
 									foreach($this->countries as $code => $name) {
-										
-										$selected = (isset($this->params['contactCountry']) && $this->params['contactCountry'] == $code) ? 'selected="selected"' : '';
-										
-										echo '<option value="'.$code.'" '.$selected.' >'.$name.'</option>';
+																				
+										echo '<option value="'.$code.'">'.$name.'</option>';
 									  
-									} ?>
+									} 
+									?>
 
-								</select> </td>
+									</select> 
+								</td>
 							</tr>
-							<tr>
-								<td><label for="contactOtherCountry" class='otherCountryField contactAlt'>Please Specify *</label></td>
-								<td><input type="text" class='otherCountryField contactAlt' name="contactOtherCountry" id="contactOtherCountry" <?= isset($this->params['contactOtherCountry']) ?  $this->params['contactOtherCountry'] : '' ?>/></td>
-							</tr>	
 							<tr>
 								<td><label for="contactTelephone">Telephone *</label></td>
 								<td><input type="text" name="contactTelephone" id="contactTelephone" value="<?= isset($this->params['contactTelephone']) ?  $this->params['contactTelephone'] : '' ?>"/></td>
@@ -151,7 +145,7 @@
 					<table>
 						<tr>
 							<td><label for='sameAsAddress'>Same As Above</label></td>
-							<td><input type='checkbox' value='1' id='sameAsAddress' id="sameAsAddress"/></td>
+							<td><input type='checkbox' value='1' id="sameAsAddress"/></td>
 						</tr>
 						<tr>
 							<td><label for="remitAddress">Remit Address *</label></td>
@@ -187,18 +181,12 @@
 									$this->params['remitCountry'] = (isset($this->params['remitCountry'])) ? $this->params['remitCountry'] : 'gb';
 									
 									foreach($this->countries as $code => $name) {
-										
-										$selected = (isset($this->params['remitCountry']) && $this->params['remitCountry'] == $code) ? 'selected="selected"' : '';
-										
-										echo '<option value="'.$code.'" '.$selected.' >'.$name.'</option>';
+																				
+										echo '<option value="'.$code.'" >'.$name.'</option>';
 									  
 									} ?>
 								
 								</select></td>
-						</tr>
-						<tr>
-							<td><label for="remitOtherCountry" class='otherCountryField remitAlt'>Please Specify *</label></td>
-							<td><input type="text" class='otherCountryField remitAlt' name="remitOtherCountry" id="remitOtherCountry" value="<?= isset($this->params['remitOtherCountry']) ?  $this->params['remitOtherCountry'] : '' ?>"/></td>
 						</tr>
 						<tr>
 							<td><label for="remitTelephone">Telephone *</label></td>
@@ -234,10 +222,8 @@
 								$this->params['agreedPaymentTerms'] = (isset($this->params['agreedPaymentTerms'])) ? $this->params['agreedPaymentTerms'] : 'n060';
 								
 								foreach($this->paymentTerms as $code => $name) {
-									
-									$selected = (isset($this->params['agreedPaymentTerms']) && $this->params['agreedPaymentTerms'] == $code) ? 'selected="selected"' : '';
-									
-									echo '<option value="'.$code.'" '.$selected.' >'.$name.'</option>';
+																		
+									echo '<option value="'.$code.'"  >'.$name.'</option>';
 								  
 								} ?>
 
@@ -256,18 +242,12 @@
 								$this->params['currency'] = (isset($this->params['currency'])) ? $this->params['currency'] : 'gbp';
 								
 								foreach($this->currencies as $code => $name) {
-									
-									$selected = (isset($this->params['currency']) && $this->params['currency'] == $code) ? 'selected="selected"' : '';
-									
-									echo '<option value="'.$code.'" '.$selected.' >'.$name.'</option>';
+																		
+									echo '<option value="'.$code.'" >'.$name.'</option>';
 								  
 								} ?>
 							
 							</select></td>
-						</tr>
-						<tr>
-							<td><label for="currency" class='otherCurrency'>Please Specify *</label></td>
-							<td><input type='text' name='otherCurrency' value='<?php echo (isset($this->params['otherCurrency']))?$this->params['otherCurrency']:'';?>' class='otherCurrency' id='otherCurrency'/></td>
 						</tr>
 					</table>	
 			  </div>
@@ -295,10 +275,10 @@
 		 </div>
 		 </div>
 		 
-		 <div class="panel panel-info">
-			<div class="panel-heading"><h4>Bank Details</h4></div>
+		 <div class="panel panel-info" id="bankDetails">
+			<div class="panel-heading" ><h4>Bank Details</h4></div>
 			
-		 <div class="panel-body" id="bankDetails">
+		 <div class="panel-body">
 		    <div class="row">
 		    	<p style='margin:0 0 0 15px;font-size:14px'>
 		    		<b>Backup documentation from the supplier to support the bank details is mandatory, refer to 'Help' documentation for further details</b>
@@ -339,22 +319,14 @@
 							<td><select name="bankCountry" id="bankCountry" alt-input='bankAlt' class='countryField'>
 								
 								<?php 
-								
-								$this->params['bankCountry'] = (isset($this->params['bankCountry'])) ? $this->params['bankCountry'] : 'gb';
-								
+																
 								foreach($this->countries as $code => $name) {
-									
-									$selected = (isset($this->params['bankCountry']) && $this->params['bankCountry'] == $code) ? 'selected="selected"' : '';
-									
-									echo '<option value="'.$code.'" '.$selected.' >'.$name.'</option>';
+																		
+									echo '<option value="'.$code.'" >'.$name.'</option>';
 								  
 								} ?>
 								
 							</select></td>
-						</tr>
-						<tr>
-							<td><label for="bankOtherCountry" class='otherCountryField bankAlt'>Please Specify *</label></td>
-							<td><input type="text" class='otherCountryField bankAlt' name="bankOtherCountry" id="bankOtherCountry" value="<?= isset($this->params['bankOtherCountry']) ?  $this->params['bankOtherCountry'] : '' ?>" /></td>
 						</tr>
 						<tr>
 							<td><label for="accountNumber">Account Number *</label></td>

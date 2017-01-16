@@ -6,7 +6,7 @@ class SessionCheck{
 	     $vendorsession= new VendorSession();//object of VendorSession
          $sessionuser=$vendorsession->getSessionUser();//User id of user
          if(is_null($sessionuser)){
-return $flag;
+			return $flag;
          }
          if(isset($sessionuser)){
          	return $sessionuser;
