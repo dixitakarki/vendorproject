@@ -75,27 +75,27 @@
 						<table>
 							<tr>
 								<td><label for="name">Vendor Name *</label></td>
-								<td><input type="text" name="name" value="<?= isset($this->params['name']) ?  $this->params['name'] : '' ?>" /></td>
+								<td><input type="text" name="name" /></td>
 							</tr>
 							<tr>
 								<td><label for="contactAddress">Address 1 *</label></td>
-								<td><input type="textarea" name="contactAddress"  id="contactAddress" value="<?= isset($this->params['contactAddress']) ?  $this->params['contactAddress'] : '' ?>" /></td>
+								<td><input type="textarea" name="contactAddress"  id="contactAddress" /></td>
 							</tr>
 							<tr>
 								<td><label for="contactAddress2">Address 2 </label></td>
-								<td><input type="textarea" name="contactAddress2" id="contactAddress2" value="<?= isset($this->params['contactAddress2']) ?  $this->params['contactAddress2'] : '' ?>" /></td>
+								<td><input type="textarea" name="contactAddress2" id="contactAddress2" /></td>
 							</tr>
 							<tr>
 								<td><label for="contactCity">City *</label></td>
-								<td><input type="text" name="contactCity" id="contactCity" value="<?= isset($this->params['contactCity']) ?  $this->params['contactCity'] : '' ?>"/></td>
+								<td><input type="text" name="contactCity" id="contactCity" /></td>
 							</tr>
 							<tr>
 								<td><label for="contactCounty">County/Region *</label></td>
-								<td><input type="text" name="contactCounty" id="contactCounty" value="<?= isset($this->params['contactCounty']) ?  $this->params['contactCounty'] : '' ?>" /></td>
+								<td><input type="text" name="contactCounty" id="contactCounty" /></td>
 							</tr>
 							<tr>
 								<td><label for="contactPostcode">Postcode *</label></td>
-								<td><input type="text" name="contactPostcode" id="contactPostcode" value="<?= isset($this->params['contactPostcode']) ?  $this->params['contactPostcode'] : '' ?>" /></td>
+								<td><input type="text" name="contactPostcode" id="contactPostcode" /></td>
 							</tr>
 						</table>
 					</div>
@@ -120,23 +120,23 @@
 							</tr>
 							<tr>
 								<td><label for="contactTelephone">Telephone *</label></td>
-								<td><input type="text" name="contactTelephone" id="contactTelephone" value="<?= isset($this->params['contactTelephone']) ?  $this->params['contactTelephone'] : '' ?>"/></td>
+								<td><input type="text" name="contactTelephone" id="contactTelephone"/></td>
 							</tr>	
 							<tr>	
 								<td><label for="contactFax">Fax</label></td>
-								<td><input type="text" name="contactFax" id="contactFax" value="<?= isset($this->params['contactFax']) ?  $this->params['contactFax'] : '' ?>"/></td>
+								<td><input type="text" name="contactFax" id="contactFax"/></td>
 							</tr>	
 							<tr>	
 								<td><label title='Email for Purchase Order' for="contactEmail">E-Mail *</label></td>
-								<td><input title='Email for Purchase Order' type="text" name="contactEmail" id="contactEmail" value="<?= isset($this->params['contactEmail']) ?  $this->params['contactEmail'] : '' ?>" /></td>
+								<td><input title='Email for Purchase Order' type="text" name="contactEmail" id="contactEmail"/></td>
 							</tr>	
 							<tr>	
 								<td><label title='10 Digits - (Only if self employed)' for="selfAssesmentTaxNo">Self Assessment Tax No. *</label></td>
-								<td><input title='10 Digits - (Only if self employed)' type="text" name="selfAssesmentTaxNo" id="selfAssesmentTaxNo" value="<?= isset($this->params['selfAssesmentTaxNo']) ?  $this->params['selfAssesmentTaxNo'] : '' ?>"/> </td>
+								<td><input title='10 Digits - (Only if self employed)' type="text" name="selfAssesmentTaxNo" id="selfAssesmentTaxNo" /> </td>
 							</tr>						
 							<tr>	
 								<td><label title='9 Numeric digits, may be prefixed by GB - Required for any UK company (not self employed)' for="vatNumber">Vat Number *</label></td>
-								<td><input title='9 Numeric digits, may be prefixed by GB - Required for any UK company (not self employed)' type="text" name="vatNumber" id="vatNumber" value="<?= isset($this->params['vatNumber']) ?  $this->params['vatNumber'] : '' ?>" /></td>
+								<td><input title='9 Numeric digits, may be prefixed by GB - Required for any UK company (not self employed)' type="text" name="vatNumber" id="vatNumber" /></td>
 							</tr>
 						</table>	
 					</div>   
@@ -153,27 +153,27 @@
 					<table>
 						<tr>
 							<td><label for='sameAsAddress'>Same As Above</label></td>
-							<td><input type='checkbox' value='1' id="sameAsAddress"/></td>
+							<td><input type='checkbox' name='sameAsAddress' id="sameAsAddress"/></td>
 						</tr>
 						<tr>
 							<td><label for="remitAddress">Remit Address *</label></td>
-							<td><input type="text" name="remitAddress" id="remitAddress" value="<?= isset($this->params['remitAddress']) ?  $this->params['remitAddress'] : '' ?>" /></td>
+							<td><input type="text" name="remitAddress" id="remitAddress" /></td>
 						</tr>
 						<tr>
 							<td><label for="remitAddress2">Remit Address 2</label></td>
-							<td><input type="text" name="remitAddress2" id="remitAddress2" value="<?= isset($this->params['remitAddress2']) ?  $this->params['remitAddress2'] : '' ?>" /></td>
+							<td><input type="text" name="remitAddress2" id="remitAddress2" /></td>
 						</tr>
 						<tr>
 							<td><label for="remitCity">City *</label></td>
-							<td><input type="text" name="remitCity" id="remitCity" value="<?= isset($this->params['remitCity']) ?  $this->params['remitCity'] : '' ?>" /></td>
+							<td><input type="text" name="remitCity" id="remitCity" /></td>
 						</tr>
 						<tr>
 							<td><label for="remitCounty">County *</label></td>
-							<td><input type="text" name="remitCounty" id="remitCounty" value="<?= isset($this->params['remitCounty']) ?  $this->params['remitCounty'] : '' ?>" /></td>
+							<td><input type="text" name="remitCounty" id="remitCounty" /></td>
 						</tr>
 						<tr>
 							<td><label for="remitPostcode">Postcode *</label></td>
-							<td><input type="text" name="remitPostcode" id="remitPostcode" value="<?= isset($this->params['remitPostcode']) ?  $this->params['remitPostcode'] : '' ?>" /></td>
+							<td><input type="text" name="remitPostcode" id="remitPostcode" /></td>
 						</tr>
 					</table>	
 			   </div>
@@ -185,9 +185,7 @@
 							<td><select class='countryField remitCountry' alt-input ='remitAlt' name="remitCountry" id="remitCountry">
 									 
 									<?php 
-									
-									$this->params['remitCountry'] = (isset($this->params['remitCountry'])) ? $this->params['remitCountry'] : 'gb';
-									
+																		
 									foreach($this->countries as $code => $name) {
 																				
 										echo '<option value="'.$code.'" >'.$name.'</option>';
@@ -198,15 +196,15 @@
 						</tr>
 						<tr>
 							<td><label for="remitTelephone">Telephone *</label></td>
-							<td><input type="text" name="remitTelephone" id="remitTelephone" value="<?= isset($this->params['remitTelephone']) ?  $this->params['remitTelephone'] : '' ?>" /></td>
+							<td><input type="text" name="remitTelephone" id="remitTelephone" /></td>
 						</tr>
 						<tr>
 							<td><label for="remitFax">Fax</label></td>
-							<td><input type="text" name="remitFax" id="remitFax" value="<?= isset($this->params['remitFax']) ?  $this->params['remitFax'] : '' ?>" /></td>
+							<td><input type="text" name="remitFax" id="remitFax" /></td>
 						</tr>
 						<tr>
 							<td><label title='Email for Remittance' for="remitEmail">E-Mail *</label></td>
-							<td><input title='Email for Remittance' type="text" name="remitEmail" id="remitEmail" value="<?= isset($this->params['remitEmail']) ?  $this->params['remitEmail'] : '' ?>" /></td>
+							<td><input title='Email for Remittance' type="text" name="remitEmail" id="remitEmail" /></td>
 						</tr>
 					</table>	
 				</div>
@@ -226,9 +224,7 @@
 							<td><select id="agreedPaymentTerms" name="agreedPaymentTerms">
 							
 								<?php 
-								
-								$this->params['agreedPaymentTerms'] = (isset($this->params['agreedPaymentTerms'])) ? $this->params['agreedPaymentTerms'] : 'n060';
-								
+																
 								foreach($this->paymentTerms as $code => $name) {
 																		
 									echo '<option value="'.$code.'"  >'.$name.'</option>';
@@ -245,10 +241,7 @@
 							<td><label for="currency">Currency *</label></td>
 							<td><select name="currency" id="currency" >
 							
-								<?php 
-								
-								$this->params['currency'] = (isset($this->params['currency'])) ? $this->params['currency'] : 'gbp';
-								
+								<?php 								
 								foreach($this->currencies as $code => $name) {
 																		
 									echo '<option value="'.$code.'" >'.$name.'</option>';
@@ -379,5 +372,7 @@
 		</div>
 	</form>
 </div>
+
+<script type="text/javascript" src="<?=$this->baseUrl('js/new/new.js');?>" ></script>
 
 <?php echo $this->render('footer.phtml');?>
