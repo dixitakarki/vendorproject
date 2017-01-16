@@ -16,7 +16,6 @@ class AuthenticationController extends Zend_Controller_Action
 	}
 	function loginAction()
     {
-
         
         $this->view->error = '';
         if ($this->_request->isPost()) {
@@ -57,7 +56,6 @@ class AuthenticationController extends Zend_Controller_Action
                 else {
                         throw new Exception('Incorrect username or Password, Please try again');
                     }
-
                  /*
                 else {
                     // failure: clear database row from session
@@ -75,4 +73,6 @@ class AuthenticationController extends Zend_Controller_Action
         
     }
 }
-	}	
+
+}	
+

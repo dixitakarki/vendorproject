@@ -1,5 +1,4 @@
 <?php
-
 class NewController extends Zend_Controller_Action
 {
     public function init()
@@ -16,26 +15,24 @@ class NewController extends Zend_Controller_Action
 }
     public function indexAction()
     {
-        
+        $options = Input::getOptions();
+        $this->view->categories = $options->category->toArray();    
+        $this->view->countries = $options->country->toArray();
+        $this->view->currencies = $options->currency->toArray();
+        $this->view->paymentTerms = $options->payment->terms->toArray();
+        $this->view->paymentMethods = $options->payment->method->toArray();
 		 $session = new Zend_Session_Namespace('session');
          $this->view->errorLog=$session->errorArray;
          $this->view->currentForm=$session->currentForm;
-         unset($session->errorArray);
-//          if($session->errorComCode===""){
-// 		 $this->view->errorComCode="";}
-//          else{
-//             $this->view->errorComCode=$session->errorComCode;
-//             unset($session->errorComCode);
-//          }
-// if($session->errorPurCode===""){
-// $this->view->errorPurCode="";
-// }
-//          else{
-            
-//             $this->view->errorPurCode=$session->errorPurCode;
-            
-//             unset($session->errorPurCode);
-//          }
+         unset($session->errorArray);	
+		$session = new Zend_Session_Namespace('session');
+         if($session->errorComCode===""){
+		 $this->view->errorComCode="";
+		 }else{
+            $this->view->errorComCode=$session->errorComCode;
+            unset($session->errorComCode);
+         }
+
     }
     
 }

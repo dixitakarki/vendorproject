@@ -5,8 +5,8 @@
   <title><?php echo $this->title ;?></title>
   <?php
 		 $this->headScript()->appendFile($this->baseUrl("js/jquery-1.12.4.js"))
-		                  ->appendFile($this->baseUrl("js/bootstrap.min.js"))                 
-					->appendFile($this->baseUrl("js/myscript.js"));
+							->appendFile($this->baseUrl("js/bootstrap.min.js"))                 
+							->appendFile($this->baseUrl("js/myscript.js"));
             echo $this->headScript();
              $this->headLink()->appendStylesheet($this->baseUrl("css/bootstrap.min.css"))
 			 ->appendStylesheet($this->baseUrl("css/font-awesome.min.css"))
@@ -17,6 +17,7 @@
   <script src="<?php echo $this->baseUrl ?>/js/myscript.js"></script>
 		 <script src="<?php echo $this->baseUrl ?>/js/jquery-1.12.4.js"></script>
 </head>
+
 <body>
 <div id="header">
 VENDOR REQUEST SYSTEM

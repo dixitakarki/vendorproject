@@ -1,8 +1,6 @@
 <?php
-
 class IndexController extends Zend_Controller_Action
 {
-
     public function init()
     {
        $this->initView();
@@ -13,13 +11,8 @@ class IndexController extends Zend_Controller_Action
         }else{
             $this->view->user=SessionCheck::sessionCheckSum();
         }
-
     }
     public function indexAction()
     {
-
     }
-
-
 }
-
