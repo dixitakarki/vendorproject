@@ -7,6 +7,9 @@
 		<div id='requestNumber'>
 			<b>Request Number: N/A</b>
 		</div>
+
+<!--====================================================COMPANY   DETAILS===================================-->
+
 		<div class="panel panel-info">
 			<div class="panel-heading"><h4>Company Details</h4></div>
 
@@ -20,7 +23,7 @@
 							<td><input type="text" name="companyCode" value="<?= isset($this->currentForm[0]) ?  $this->currentForm[0] : '4440' ?>" /></td>
 							<td>  
 								<?php if($this->errorLog[0]){?>
-								<span class="error"><?php echo "plz enter four digit code"?> </span>
+								<span class="error"><?php echo "please enter four digit code"?> </span>
 <?php }?></td>
 						</tr>
 						<tr>
@@ -39,7 +42,7 @@
 
 						<td>  
 								<?php if($this->errorLog[1]){?>
-								<span class="error"><?php echo "Only four digit number is allowed"?> </span>
+								<span class="error"><?php echo "Enter correct Organisation code"?> </span>
 <?php }?></td>
 						</tr>
 						<tr>
@@ -66,7 +69,9 @@
 		    </div>    
 		</div>
 	</div>	
-		
+
+<!--=====================================================CONTACT  DETAILS==================================================-->
+
 		<div class="panel panel-info">
 			<div class="panel-heading"><h4>Contact Details</h4></div>
 			
@@ -77,7 +82,7 @@
 						<table>
 							<tr>
 								<td><label for="name">Vendor Name *</label></td>
-								<td><input type="text" name="name" value="<?= isset($this->currentForm[2]) ?  $this->currentForm[2] : '' ?>" /></td>
+								<td><input type="text" name="name" value="<?= isset($this->currentForm[2]) ?  $this->currentForm[2] : '' ?>" required/></td>
 								<td>  
 								<?php if($this->errorLog[2]){?>
 								<span class="error"><?php echo "Enter valid name"?> </span>
@@ -93,7 +98,7 @@
 							</tr>
 							<tr>
 								<td><label for="contactCity">City *</label></td>
-								<td><input type="text" name="contactCity" id="contactCity" value="<?= isset($this->currentForm[3]) ?  $this->currentForm[3] : '' ?>" /></td>
+								<td><input type="text" name="contactCity" id="contactCity" value="<?= isset($this->currentForm[3]) ?  $this->currentForm[3] : '' ?>" required/></td>
 								<td>  
 								<?php if($this->errorLog[3]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -101,7 +106,7 @@
 							</tr>
 							<tr>
 								<td><label for="contactCounty">County/Region *</label></td>
-								<td><input type="text" name="contactCounty" id="contactCounty" value="<?= isset($this->currentForm[4]) ?  $this->currentForm[4] : '' ?>" /></td>
+								<td><input type="text" name="contactCounty" id="contactCounty" value="<?= isset($this->currentForm[4]) ?  $this->currentForm[4] : '' ?>" required/></td>
 								<td>  
 								<?php if($this->errorLog[4]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -109,7 +114,11 @@
 							</tr>
 							<tr>
 								<td><label for="contactPostcode">Postcode *</label></td>
-								<td><input type="number" name="contactPostcode" id="contactPostcode" value="" /></td>
+								<td><input type="text" name="contactPostcode" id="contactPostcode" value="<?= isset($this->currentForm[15]) ?  $this->currentForm[15] : '' ?>" /></td>
+								<td>  
+								<?php if($this->errorLog[15]){?>
+								<span class="error"><?php echo "please enter valid postcode"?> </span>
+<?php }?></td>
 
 							</tr>
 						</table>
@@ -135,7 +144,7 @@
 							</tr>
 							<tr>
 								<td><label for="contactOtherCountry" class='otherCountryField contactAlt'>Please Specify </label></td>
-								<td><input type="text" class='otherCountryField contactAlt' name="contactOtherCountry" id="contactOtherCountry" <?= isset($this->currentForm[5]) ?  $this->currentForm[5] : '' ?> /></td>
+								<td><input type="text" class='otherCountryField contactAlt' name="contactOtherCountry" id="contactOtherCountry" <?= isset($this->currentForm[5]) ?  $this->currentForm[5] : '' ?> required/></td>
 								<td>  
 								<?php if($this->errorLog[5]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -143,11 +152,19 @@
 							</tr>	
 							<tr>
 								<td><label for="contactTelephone">Telephone *</label></td>
-								<td><input type="number" name="contactTelephone" id="contactTelephone" value="" /></td>
+								<td><input type="text" name="contactTelephone" id="contactTelephone" value="<?= isset($this->currentForm[16]) ?  $this->currentForm[16] : '' ?>" /></td>
+								<td>
+								<?php if($this->errorLog[16]){?>
+								<span class="error"><?php echo "please enter valid telephone number"?> </span>
+<?php }?></td>
 							</tr>	
 							<tr>	
 								<td><label for="contactFax">Fax</label></td>
-								<td><input type="number" oninvalid="setCustomValidity('Plz enter valid fax number ')" name="contactFax" id="contactFax" value=""/></td>
+								<td><input type="text" name="contactFax" id="contactFax" value="<?= isset($this->currentForm[17]) ?  $this->currentForm[17] : '' ?>"/></td>
+								<td>
+								<?php if($this->errorLog[17]){?>
+								<span class="error"><?php echo "enter valid fax number"?> </span>
+<?php }?></td>
 							</tr>	
 							<tr>	
 								<td><label title='Email for Purchase Order' for="contactEmail">E-Mail *</label></td>
@@ -155,11 +172,20 @@
 							</tr>	
 							<tr>	
 								<td><label title='10 Digits - (Only if self employed)' for="selfAssesmentTaxNo">Self Assessment Tax No. *</label></td>
-								<td><input title='10 Digits - (Only if self employed)' type="number" oninvalid="setCustomValidity('Plz enter valid tax number ')" name="selfAssesmentTaxNo" id="selfAssesmentTaxNo" value="" /> </td>
+								<td><input title='10 Digits - (Only if self employed)' type="text" name="selfAssesmentTaxNo" id="selfAssesmentTaxNo" value="<?= isset($this->currentForm[18]) ?  $this->currentForm[18] : '' ?>" /> </td>
+								<td>
+								<?php if($this->errorLog[18]){?>
+								<span class="error"><?php echo "enter valid tax number"?> </span>
+<?php }?></td>
+
 							</tr>						
 							<tr>	
 								<td><label title='9 Numeric digits, may be prefixed by GB -  for any UK company (not self employed)' for="vatNumber">Vat Number *</label></td>
-								<td><input title='9 Numeric digits, may be prefixed by GB -  for any UK company (not self employed)' type="number" oninvalid="setCustomValidity('Plz enter valid vat number ')" name="vatNumber" id="vatNumber" value="" /></td>
+								<td><input title='9 Numeric digits, may be prefixed by GB -  for any UK company (not self employed)' type="text"  name="vatNumber" id="vatNumber" value="<?= isset($this->currentForm[19]) ?  $this->currentForm[19] : '' ?>" /></td>
+								<td>
+								<?php if($this->errorLog[19]){?>
+								<span class="error"><?php echo "enter valid vat number"?> </span>
+<?php }?></td>
 
 							</tr>
 						</table>	
@@ -167,6 +193,8 @@
 				</div> 
 		 </div>
 		</div>
+
+<!--====================================================REMIT   DETAILS IF DIFFERENT===================================-->
 		
 		 <div class="panel panel-info">
 			<div class="panel-heading"><h4>Remit Details (if different)</h4></div>
@@ -189,7 +217,7 @@
 						</tr>
 						<tr>
 							<td><label for="remitCity">City *</label></td>
-							<td><input type="text" name="remitCity" id="remitCity" value="<?= isset($this->currentForm[6]) ?  $this->currentForm[6] : '' ?>" /></td>
+							<td><input type="text" name="remitCity" id="remitCity" value="<?= isset($this->currentForm[6]) ?  $this->currentForm[6] : '' ?>" required/></td>
 							<td>  
 								<?php if($this->errorLog[6]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -197,7 +225,7 @@
 						</tr>
 						<tr>
 							<td><label for="remitCounty">County *</label></td>
-							<td><input type="text" name="remitCounty" id="remitCounty" value="<?= isset($this->currentForm[7]) ?  $this->currentForm[7] : '' ?>" /></td>
+							<td><input type="text" name="remitCounty" id="remitCounty" value="<?= isset($this->currentForm[7]) ?  $this->currentForm[7] : '' ?>" required/></td>
 							<td>  
 								<?php if($this->errorLog[7]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -205,7 +233,11 @@
 						</tr>
 						<tr>
 							<td><label for="remitPostcode">Postcode *</label></td>
-							<td><input type="number" min="100000" max="999999" oninvalid="setCustomValidity('Plz enter valid  postcode ')" name="remitPostcode" id="remitPostcode" value="" /></td>
+							<td><input type="text" name="remitPostcode" id="remitPostcode" value="<?= isset($this->currentForm[20]) ?  $this->currentForm[20] : '' ?>" /></td>
+							<td>
+								<?php if($this->errorLog[20]){?>
+								<span class="error"><?php echo "enter valid postcode"?> </span>
+<?php }?></td>
 						</tr>
 					</table>	
 			   </div>
@@ -228,7 +260,7 @@
 						</tr>
 						<tr>
 							<td><label for="remitOtherCountry" class='otherCountryField remitAlt'>Please Specify </label></td>
-							<td><input type="text" class='otherCountryField remitAlt' name="remitOtherCountry" id="remitOtherCountry" value="<?= isset($this->currentForm[8]) ?  $this->currentForm[8] : '' ?>" /></td>
+							<td><input type="text" class='otherCountryField remitAlt' name="remitOtherCountry" id="remitOtherCountry" value="<?= isset($this->currentForm[8]) ?  $this->currentForm[8] : '' ?>" required/></td>
 							<td>  
 								<?php if($this->errorLog[8]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -236,11 +268,19 @@
 						</tr>
 						<tr>
 							<td><label for="remitTelephone">Telephone *</label></td>
-							<td><input type="number" min="1000000000" max="9999999999" oninvalid="setCustomValidity('Plz enter valid telephone number ')" name="remitTelephone" id="remitTelephone" value="" /></td>
+							<td><input type="text"  name="remitTelephone" id="remitTelephone" value="<?= isset($this->currentForm[21]) ?  $this->currentForm[21] : '' ?>" /></td>
+							<td>
+								<?php if($this->errorLog[21]){?>
+								<span class="error"><?php echo "enter valid telephone number"?> </span>
+<?php }?></td>
 						</tr>
 						<tr>
 							<td><label for="remitFax">Fax</label></td>
-							<td><input type="number" min="1000000000" max="9999999999" oninvalid="setCustomValidity('Plz enter valid fax number ')" name="remitFax" id="remitFax" value="" /></td>
+							<td><input type="text"  name="remitFax" id="remitFax" value="<?= isset($this->currentForm[22]) ?  $this->currentForm[22] : '' ?>" /></td>
+							<td>
+								<?php if($this->errorLog[22]){?>
+								<span class="error"><?php echo "enter valid fax number"?> </span>
+<?php }?></td>
 						</tr>
 						<tr>
 							<td><label title='Email for Remittance' for="remitEmail">E-Mail *</label></td>
@@ -251,6 +291,8 @@
 		    </div>
 		 </div>
 		</div>
+
+<!--======================================================PAYMENT  TERMS===================================================-->
 		
 		<div class="panel panel-info">
 			<div class="panel-heading"><h4>Payment Terms</h4></div>
@@ -292,7 +334,7 @@
 						</tr>
 						<tr>
 							<td><label for="currency" class='otherCurrency'>Please Specify *</label></td>
-							<td><input type='text' name='otherCurrency' value="<?= isset($this->currentForm[9]) ?  $this->currentForm[9] : '' ?>" class='otherCurrency' id='otherCurrency' /></td>
+							<td><input type='text' name='otherCurrency' value="<?= isset($this->currentForm[9]) ?  $this->currentForm[9] : '' ?>" class='otherCurrency' id='otherCurrency' required/></td>
 							<td>  
 								<?php if($this->errorLog[9]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -323,6 +365,8 @@
 		    </div>
 		 </div>
 		 </div>
+
+<!--=======================================================BANK  DETAILS=================================================-->
 		 
 		 <div class="panel panel-info" id="bankDetails">
 			<div class="panel-heading" ><h4>Bank Details</h4></div>
@@ -336,7 +380,7 @@
 					<table>
 						<tr>
 							<td><label for="bankName">Bank Name *</label></td>
-							<td><input type="text" id="bankName" name="bankName" value="<?= isset($this->currentForm[10]) ?  $this->currentForm[10] : '' ?>" /></td>
+							<td><input type="text" id="bankName" name="bankName" value="<?= isset($this->currentForm[10]) ?  $this->currentForm[10] : '' ?>" required/></td>
 							<td>  
 								<?php if($this->errorLog[10]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -344,7 +388,7 @@
 						</tr>
 						<tr>
 							<td><label for="bankBranch">Bank Branch *</label></td>
-							<td><input type="text" id="bankBranch" name="bankBranch" value="<?= isset($this->currentForm[11]) ?  $this->currentForm[11] : '' ?>" /></td>
+							<td><input type="text" id="bankBranch" name="bankBranch" value="<?= isset($this->currentForm[11]) ?  $this->currentForm[11] : '' ?>" required/></td>
 							<td>  
 								<?php if($this->errorLog[11]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -356,7 +400,7 @@
 						</tr>
 						<tr>
 							<td><label for="bankCity">City *</label></td>
-							<td><input type="text" id="bankCity" name="bankCity" value="<?= isset($this->currentForm[12]) ?  $this->currentForm[12] : '' ?>" /></td>
+							<td><input type="text" id="bankCity" name="bankCity" value="<?= isset($this->currentForm[12]) ?  $this->currentForm[12] : '' ?>" required/></td>
 							<td>  
 								<?php if($this->errorLog[12]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -364,7 +408,12 @@
 						</tr>
 						<tr>
 							<td><label for="bankPostcode">Postcode *</label></td>
-							<td><input type="number" min="100000" max="999999" oninvalid="setCustomValidity('Plz enter valid postcode ')" id="bankPostcode" name="bankPostcode" value="" /></td>
+							<td><input type="text" id="bankPostcode" name="bankPostcode" value="<?= isset($this->currentForm[23]) ?  $this->currentForm[23] : '' ?>" /></td>
+							<td>
+								<?php if($this->errorLog[23]){?>
+								<span class="error"><?php echo "enter valid postcode"?> </span>
+<?php }?></td>
+
 						</tr>
 					</table>
 		        </div>
@@ -373,7 +422,7 @@
 					<table>
 						<tr>
 							<td><label for="bankCounty">County/Region *</label>
-							<td><input type="text" id="bankCounty" name="bankCounty" value="<?= isset($this->currentForm[13]) ?  $this->currentForm[13] : '' ?>" /></td>
+							<td><input type="text" id="bankCounty" name="bankCounty" value="<?= isset($this->currentForm[13]) ?  $this->currentForm[13] : '' ?>" required/></td>
 							<td>  
 								<?php if($this->errorLog[13]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -395,7 +444,7 @@
 						</tr>
 						<tr>
 							<td><label for="bankOtherCountry" class='otherCountryField bankAlt'>Please Specify *</label></td>
-							<td><input type="text" class='otherCountryField bankAlt' name="bankOtherCountry" id="bankOtherCountry" value="<?= isset($this->currentForm[14]) ?  $this->currentForm[14] : '' ?>"/></td>
+							<td><input type="text" class='otherCountryField bankAlt' name="bankOtherCountry" id="bankOtherCountry" value="<?= isset($this->currentForm[14]) ?  $this->currentForm[14] : '' ?>" required/></td>
 							<td>  
 								<?php if($this->errorLog[14]){?>
 								<span class="error"><?php echo "numbers are not allowed"?> </span>
@@ -403,17 +452,28 @@
 						</tr>
 						<tr>
 							<td><label for="accountNumber">Account Number *</label></td>
-							<td><input type="number" min="10000000000" oninvalid="setCustomValidity('Plz enter valid account number ')" id="accountNumber" name="accountNumber" value="" /></td>
+							<td><input type="text" id="accountNumber" name="accountNumber" value="<?= isset($this->currentForm[24]) ?  $this->currentForm[24] : '' ?>" /></td>
+							<td>
+								<?php if($this->errorLog[24]){?>
+								<span class="error"><?php echo "enter valid account number"?> </span>
+<?php }?></td>
 						</tr>
 						<tr>
 							<td><label for="sortCode">Sort/Swift/Routing Code *</label></td>
-							<td><input type="number" oninvalid="setCustomValidity('Plz enter valid routing code ')" id="sortCode" name="sortCode" value="" /> </td>
+							<td><input type="text" id="sortCode" name="sortCode" value="<?= isset($this->currentForm[25]) ?  $this->currentForm[25] : '' ?>" /> </td>
+							<td>
+							<?php if($this->errorLog[25]){?>
+								<span class="error"><?php echo "enter valid routing code"?> </span>
+<?php }?></td>
+
 						</tr>
 					</table>	
 				</div>
 		    </div>
 		 </div>
 		</div> 
+
+<!--==========================================================ATTACHMENT===================================================-->
 		 
 		 <div class="panel panel-info">
 			<div class="panel-heading"><h4>Attachment</h4></div>
@@ -423,7 +483,7 @@
 		        <div class="col-md-6 pull-left">
 		        	<div class="form-group">
 						<label for="attachment">Attachment 1 *</label>
-						<input type="file" name="attachment" value="" />
+						<input type="file" name="attachment" value="" required/>
 					</div>
 			   </div>
 		        <div class="col-md-6 pull-right">
@@ -436,6 +496,8 @@
 		    </div>
 		 </div>
 		</div>
+
+<!--====================================================FORM CONTROLLING BUTTONS==========================================-->
 		
 		<div class="row col-md-8 col-md-offset-4">
 			<button onclick='window.history.back()' class='btn btn-primary btn-lg'>Back</button>

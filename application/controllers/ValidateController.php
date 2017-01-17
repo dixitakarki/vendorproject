@@ -25,7 +25,21 @@
             $bankcity = $filter->filter($this->_request->getPost('bankCity'));
             $bankcounty = $filter->filter($this->_request->getPost('bankCounty'));
             $bankothercountry = $filter->filter($this->_request->getPost('bankOtherCountry'));
-            array_push($errorCodeArray,$companycode,$purchasingorg,$vendorname,$contactcity,$contactcounty,$contactothercountry,$remitcity,$remitcounty,$remitothercountry,$othercurrency,$bankname,$bankbranch,$bankcity,$bankcounty,$bankothercountry);
+            $contactPostcode = $filter->filter($this->_request->getPost('contactPostcode'));
+            $contactTelephone = $filter->filter($this->_request->getPost('contactTelephone'));
+            $contactFax = $filter->filter($this->_request->getPost('contactFax'));
+            $selfAssesmentTaxNo = $filter->filter($this->_request->getPost('selfAssesmentTaxNo'));
+            $vatNumber = $filter->filter($this->_request->getPost('vatNumber'));
+            $remitPostcode = $filter->filter($this->_request->getPost('remitPostcode'));
+            $remitTelephone = $filter->filter($this->_request->getPost('remitTelephone'));
+            $remitFax = $filter->filter($this->_request->getPost('remitFax'));
+            $bankPostcode = $filter->filter($this->_request->getPost('bankPostcode'));
+            $accountNumber = $filter->filter($this->_request->getPost('accountNumber'));
+            $sortCode = $filter->filter($this->_request->getPost('sortCode'));
+            array_push($errorCodeArray,$companycode,$purchasingorg,$vendorname,$contactcity,$contactcounty,$contactothercountry,
+            $remitcity,$remitcounty,$remitothercountry,$othercurrency,$bankname,$bankbranch,$bankcity,$bankcounty,
+            $bankothercountry,$contactPostcode,$contactTelephone,$contactFax,$selfAssesmentTaxNo,$vatNumber,$remitPostcode,
+            $remitTelephone,$remitFax,$bankPostcode,$accountNumber,$sortCode);
             $rec=ValidateController::errorCodeFunc($errorCodeArray);
             $sessionCompanyCode->errorArray=$rec;
             $sessionCompanyCode->currentForm=$errorCodeArray;
@@ -42,6 +56,7 @@ if($flag==1){
   $this->_redirect('/new');
 }
 else{
+  unset($sessionCompanyCode->currentForm);
   $this->_redirect('/index');
 }
             /*
@@ -63,6 +78,7 @@ else{
       $validatorComCode = new Zend_Validate_Regex(array('pattern' => '/^[0-9]{4}$/'));
         $validatorPurOrg = new Zend_Validate_Regex(array('pattern' => '/^[a-zA-Z0-9]{3,6}$/'));
         $validatorText= new Zend_Validate_Regex(array('pattern' => '/^[a-zA-Z ]*$/'));
+        $validatorNum=new Zend_Validate_Regex(array('pattern'=>'/^[0-9]*$/'));
         if(!($validatorComCode->isValid($error[0]))){
         //$errorCompanyCode="Only four digit number is allowed";
         //$sessionCompanyCode->errorComCode = $errorCompanyCode;
@@ -79,8 +95,16 @@ else{
                 else{
                    array_push($errorCode, false);
                 }
-                for($a=2;$a<count($error);$a++){
+                for($a=2;$a<=14;$a++){
                   if(!($validatorText->isValid($error[$a]))){
+        array_push($errorCode, true);
+                }
+                else{
+                   array_push($errorCode, false);
+                }
+                }
+                for ($i=15; $i<count($error) ; $i++) { 
+                    if(!($validatorNum->isValid($error[$i]))){
         array_push($errorCode, true);
                 }
                 else{
