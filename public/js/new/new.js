@@ -7,7 +7,7 @@ $("#directDebit").change(function () {
 	   $( "#bankDetails" ).show( "slow" );
    }
 });
-	
+
 
 document.getElementById('sameAsAddress').onchange = function() {
 	if(this.checked){

@@ -1,6 +1,6 @@
-
 <?php echo $this->render('header.phtml');?>
 <?php echo $this->render('navbar.phtml');?>
+
 <div class='container'>
 
 	<div class="panel panel-info">
@@ -19,10 +19,10 @@
 			</thead>
 		</table>
 		</div>
-	</div>
+
 		
 	
-	<div class="pending table-content">
+	<div class="pending table-content scroll">
 		<table class='table table-hover' cellpadding="0" cellspacing="0">
 	    	<tbody>
 				<?php
@@ -41,16 +41,16 @@
 	           ?>
 	        </tbody>
 	    </table>
+		</div>
 	</div>
 
-	<br />
 	<?php 
 		$completes = count($this->completedRequests);
 	?>
 	
 
 	<div class="panel panel-info ">
-		<div class="panel-heading"><h4>Recently Completed Requests - <?=$completes?></h4></div>
+		<div class="panel-heading" id="completedHeader"><h4>Recently Completed Requests - <?=$completes?></h4></div>
 		<div id='completed' class=''>
 				<div class="completed table-header">
 					<table class='table table-hover' cellpadding="0" cellspacing="0">
@@ -67,7 +67,7 @@
 				</div>
 
 		
-			<div class="completed table-content">
+			<div class="completed table-content scroll">
 				<table class='table table-hover' cellpadding="0" cellspacing="0">
 					<tbody style='width:110%'>
 						<?php
@@ -90,13 +90,13 @@
 		</div>
 	</div>
 
-	<br />
+
 	<?php 
 		$rejects = count($this->rejectedRequests);
 	?>
 	<div class="panel panel-info">
-      <div class="panel-heading"><h4>Rejected Requests - <?=$rejects?></h4></div>
-		<div id='rejectedRequestsDiv' class='<?=(0==$rejects)?'hideTable':'';?>'>
+      <div class="panel-heading" id="rejectedHeader"><h4>Rejected Requests - <?=$rejects?></h4></div>
+		<div id='rejected' class='<?=(0==$rejects)?'hideTable':'';?>'>
 			<div class="rejected table-header">
 				<table class='table table-hover' cellpadding="0" cellspacing="0">
 					<thead>
@@ -110,7 +110,7 @@
 				</table>
 			</div>
 			
-			<div class="rejected table-content">
+			<div class="rejected table-content scroll">
 				<table id='rejected-table' cellpadding="0" cellspacing="0">
 					<tbody style='width:110%'>
 						<?php

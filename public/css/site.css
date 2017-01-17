@@ -170,4 +170,8 @@ input[type="email"]{
   min-width: 100px;
 }
 
-
+.scroll  {
+	height: 150px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
