@@ -143,15 +143,15 @@
 							</tr>	
 							<tr>
 								<td><label for="contactTelephone">Telephone *</label></td>
-								<td><input type="text" oninvalid="setCustomValidity('Plz enter valid telephone number ')" name="contactTelephone" id="contactTelephone" value="<?= isset($this->params['contactTelephone']) ?  $this->params['contactTelephone'] : '' ?>" required/></td>
+								<td><input type="number" name="contactTelephone" id="contactTelephone" value="" required/></td>
 							</tr>	
 							<tr>	
 								<td><label for="contactFax">Fax</label></td>
-								<td><input type="number" min="1000000000" max="9999999999" oninvalid="setCustomValidity('Plz enter valid fax number ')" name="contactFax" id="contactFax" value="<?= isset($this->params['contactFax']) ?  $this->params['contactFax'] : '' ?>"/></td>
+								<td><input type="number" oninvalid="setCustomValidity('Plz enter valid fax number ')" name="contactFax" id="contactFax" value=""/></td>
 							</tr>	
 							<tr>	
 								<td><label title='Email for Purchase Order' for="contactEmail">E-Mail *</label></td>
-								<td><input title='Email for Purchase Order' type="email" name="contactEmail" id="contactEmail" value="<?= isset($this->params['contactEmail']) ?  $this->params['contactEmail'] : '' ?>" required/></td>
+								<td><input title='Email for Purchase Order' type="email" name="contactEmail" id="contactEmail" value="" required/></td>
 							</tr>	
 							<tr>	
 								<td><label title='10 Digits - (Only if self employed)' for="selfAssesmentTaxNo">Self Assessment Tax No. *</label></td>

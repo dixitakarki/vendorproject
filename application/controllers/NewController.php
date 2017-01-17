@@ -25,6 +25,7 @@ class NewController extends Zend_Controller_Action
          $this->view->errorLog=$session->errorArray;
          $this->view->currentForm=$session->currentForm;
          unset($session->errorArray);	
+         unset($session->currentForm);
 		$session = new Zend_Session_Namespace('session');
          if($session->errorComCode===""){
 		 $this->view->errorComCode="";
