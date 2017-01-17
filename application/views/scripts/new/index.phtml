@@ -85,11 +85,11 @@
 							</tr>
 							<tr>
 								<td><label for="contactAddress">Address 1 *</label></td>
-								<td><input type="textarea" name="contactAddress"  id="contactAddress" value="<?= isset($this->params['contactAddress']) ?  $this->params['contactAddress'] : '' ?>" required/></td>
+								<td><input type="textarea" name="contactAddress"  id="contactAddress" value="" required/></td>
 							</tr>
 							<tr>
 								<td><label for="contactAddress2">Address 2 </label></td>
-								<td><input type="textarea" name="contactAddress2" id="contactAddress2" value="<?= isset($this->params['contactAddress2']) ?  $this->params['contactAddress2'] : '' ?>" /></td>
+								<td><input type="textarea" name="contactAddress2" id="contactAddress2" value="" /></td>
 							</tr>
 							<tr>
 								<td><label for="contactCity">City *</label></td>
@@ -109,7 +109,7 @@
 							</tr>
 							<tr>
 								<td><label for="contactPostcode">Postcode *</label></td>
-								<td><input type="number" name="contactPostcode" id="contactPostcode" value="<?= isset($this->params['contactPostcode']) ?  $this->params['contactPostcode'] : '' ?>" required/></td>
+								<td><input type="number" name="contactPostcode" id="contactPostcode" value="" required/></td>
 
 							</tr>
 						</table>
@@ -155,11 +155,11 @@
 							</tr>	
 							<tr>	
 								<td><label title='10 Digits - (Only if self employed)' for="selfAssesmentTaxNo">Self Assessment Tax No. *</label></td>
-								<td><input title='10 Digits - (Only if self employed)' type="number" min="100000000" max="9999999999" oninvalid="setCustomValidity('Plz enter valid tax number ')" name="selfAssesmentTaxNo" id="selfAssesmentTaxNo" value="<?= isset($this->params['selfAssesmentTaxNo']) ?  $this->params['selfAssesmentTaxNo'] : '' ?>" required/> </td>
+								<td><input title='10 Digits - (Only if self employed)' type="number" oninvalid="setCustomValidity('Plz enter valid tax number ')" name="selfAssesmentTaxNo" id="selfAssesmentTaxNo" value="" required/> </td>
 							</tr>						
 							<tr>	
 								<td><label title='9 Numeric digits, may be prefixed by GB - Required for any UK company (not self employed)' for="vatNumber">Vat Number *</label></td>
-								<td><input title='9 Numeric digits, may be prefixed by GB - Required for any UK company (not self employed)' type="number" min="100000000" max="999999999" oninvalid="setCustomValidity('Plz enter valid vat number ')" name="vatNumber" id="vatNumber" value="<?= isset($this->params['vatNumber']) ?  $this->params['vatNumber'] : '' ?>" required/></td>
+								<td><input title='9 Numeric digits, may be prefixed by GB - Required for any UK company (not self employed)' type="number" oninvalid="setCustomValidity('Plz enter valid vat number ')" name="vatNumber" id="vatNumber" value="" required/></td>
 
 							</tr>
 						</table>	
@@ -181,11 +181,11 @@
 						</tr>
 						<tr>
 							<td><label for="remitAddress">Remit Address *</label></td>
-							<td><input type="text" name="remitAddress" id="remitAddress" value="<?= isset($this->params['remitAddress']) ?  $this->params['remitAddress'] : '' ?>" required/></td>
+							<td><input type="text" name="remitAddress" id="remitAddress" value="" required/></td>
 						</tr>
 						<tr>
 							<td><label for="remitAddress2">Remit Address 2</label></td>
-							<td><input type="text" name="remitAddress2" id="remitAddress2" value="<?= isset($this->params['remitAddress2']) ?  $this->params['remitAddress2'] : '' ?>" /></td>
+							<td><input type="text" name="remitAddress2" id="remitAddress2" value="" /></td>
 						</tr>
 						<tr>
 							<td><label for="remitCity">City *</label></td>
@@ -205,7 +205,7 @@
 						</tr>
 						<tr>
 							<td><label for="remitPostcode">Postcode *</label></td>
-							<td><input type="number" min="100000" max="999999" oninvalid="setCustomValidity('Plz enter valid  postcode ')" name="remitPostcode" id="remitPostcode" value="<?= isset($this->params['remitPostcode']) ?  $this->params['remitPostcode'] : '' ?>" required/></td>
+							<td><input type="number" min="100000" max="999999" oninvalid="setCustomValidity('Plz enter valid  postcode ')" name="remitPostcode" id="remitPostcode" value="" required/></td>
 						</tr>
 					</table>	
 			   </div>
@@ -236,15 +236,15 @@
 						</tr>
 						<tr>
 							<td><label for="remitTelephone">Telephone *</label></td>
-							<td><input type="number" min="1000000000" max="9999999999" oninvalid="setCustomValidity('Plz enter valid telephone number ')" name="remitTelephone" id="remitTelephone" value="<?= isset($this->params['remitTelephone']) ?  $this->params['remitTelephone'] : '' ?>" required/></td>
+							<td><input type="number" min="1000000000" max="9999999999" oninvalid="setCustomValidity('Plz enter valid telephone number ')" name="remitTelephone" id="remitTelephone" value="" required/></td>
 						</tr>
 						<tr>
 							<td><label for="remitFax">Fax</label></td>
-							<td><input type="number" min="1000000000" max="9999999999" oninvalid="setCustomValidity('Plz enter valid fax number ')" name="remitFax" id="remitFax" value="<?= isset($this->params['remitFax']) ?  $this->params['remitFax'] : '' ?>" /></td>
+							<td><input type="number" min="1000000000" max="9999999999" oninvalid="setCustomValidity('Plz enter valid fax number ')" name="remitFax" id="remitFax" value="" /></td>
 						</tr>
 						<tr>
 							<td><label title='Email for Remittance' for="remitEmail">E-Mail *</label></td>
-							<td><input title='Email for Remittance' type="email" name="remitEmail" id="remitEmail" value="<?= isset($this->params['remitEmail']) ?  $this->params['remitEmail'] : '' ?>" required/></td>
+							<td><input title='Email for Remittance' type="email" name="remitEmail" id="remitEmail" value="" required/></td>
 						</tr>
 					</table>	
 				</div>
@@ -275,7 +275,7 @@
 						</tr>
 						<tr>
 							<td><label for="incoTerms">INCO Terms *</label></td>
-							<td><input type="text" name="incoTerms" value="<?= isset($this->params['incoTerms']) ?  $this->params['incoTerms'] : 'DDP/GB' ?>" /></td>
+							<td><input type="text" name="incoTerms" value="DDP/GB" /></td>
 						</tr>
 						<tr>
 							<td><label for="currency">Currency *</label></td>
@@ -352,7 +352,7 @@
 						</tr>
 						<tr>
 							<td><label for="bankAddress">Bank Address *</label></td>
-							<td><input type="text" id="bankAddress" name="bankAddress" value="<?= isset($this->params['bankAddress']) ?  $this->params['bankAddress'] : '' ?>" required/></td>
+							<td><input type="text" id="bankAddress" name="bankAddress" value="" required/></td>
 						</tr>
 						<tr>
 							<td><label for="bankCity">City *</label></td>
@@ -364,7 +364,7 @@
 						</tr>
 						<tr>
 							<td><label for="bankPostcode">Postcode *</label></td>
-							<td><input type="number" min="100000" max="999999" oninvalid="setCustomValidity('Plz enter valid postcode ')" id="bankPostcode" name="bankPostcode" value="<?= isset($this->params['bankPostcode']) ?  $this->params['bankPostcode'] : '' ?>" required/></td>
+							<td><input type="number" min="100000" max="999999" oninvalid="setCustomValidity('Plz enter valid postcode ')" id="bankPostcode" name="bankPostcode" value="" required/></td>
 						</tr>
 					</table>
 		        </div>
@@ -403,11 +403,11 @@
 						</tr>
 						<tr>
 							<td><label for="accountNumber">Account Number *</label></td>
-							<td><input type="number" min="10000000000" oninvalid="setCustomValidity('Plz enter valid account number ')" id="accountNumber" name="accountNumber" value="<?= isset($this->params['accountNumber']) ?  $this->params['accountNumber'] : '' ?>" required/></td>
+							<td><input type="number" min="10000000000" oninvalid="setCustomValidity('Plz enter valid account number ')" id="accountNumber" name="accountNumber" value="" required/></td>
 						</tr>
 						<tr>
 							<td><label for="sortCode">Sort/Swift/Routing Code *</label></td>
-							<td><input type="number" oninvalid="setCustomValidity('Plz enter valid routing code ')" id="sortCode" name="sortCode" value="<?= isset($this->params['sortCode']) ?  $this->params['sortCode'] : '' ?>" required/> </td>
+							<td><input type="number" oninvalid="setCustomValidity('Plz enter valid routing code ')" id="sortCode" name="sortCode" value="" required/> </td>
 						</tr>
 					</table>	
 				</div>
@@ -423,13 +423,13 @@
 		        <div class="col-md-6 pull-left">
 		        	<div class="form-group">
 						<label for="attachment">Attachment 1 *</label>
-						<input type="file" name="attachment" value="<?= isset($this->params['attachment']) ?  $this->params['attachment'] : '' ?>" required/>
+						<input type="file" name="attachment" value="" required/>
 					</div>
 			   </div>
 		        <div class="col-md-6 pull-right">
 					<div class="form-group">
 						<label for="attachment2">Attachment 2</label>
-						<input type="file" name="attachment2" value="<?= isset($this->params['attachment2']) ?  $this->params['attachment2'] : '' ?>" />
+						<input type="file" name="attachment2" value="" />
 					</div>
 			  </div>
 
