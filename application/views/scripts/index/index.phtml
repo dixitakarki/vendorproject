@@ -4,8 +4,8 @@
 <div class='container'>
 
 	<div class="panel panel-info">
-      <div class="panel-heading"><h4>My Pending Requests</h4></div>
-	
+      <div class="panel-heading" id="pendingHeader" ><h4>My Pending Requests</h4></div>
+		<div id="pendingBody">
 		<div class="panel-body">
 		<table class='table table-hover' cellpadding="0" cellspacing="0">
 			<thead>
@@ -41,6 +41,7 @@
 	           ?>
 	        </tbody>
 	    </table>
+		</div>
 		</div>
 	</div>
 
@@ -96,7 +97,7 @@
 	?>
 	<div class="panel panel-info">
       <div class="panel-heading" id="rejectedHeader"><h4>Rejected Requests - <?=$rejects?></h4></div>
-		<div id='rejected' class='<?=(0==$rejects)?'hideTable':'';?>'>
+		<div id='rejected'>
 			<div class="rejected table-header">
 				<table class='table table-hover' cellpadding="0" cellspacing="0">
 					<thead>

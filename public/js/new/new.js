@@ -60,6 +60,12 @@ function currentFormClear(){
 	document.getElementById('remitEmail').value ='';
 }
 
+$('#back').click(function(){
+		history.go(-1);
+});
 
+$('#clear').click(function(){
+		history.go(0);
+});
 
 });
