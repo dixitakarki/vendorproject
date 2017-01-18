@@ -1,8 +1,7 @@
-  <?php
+ <?php
   class ValidateController extends Zend_Controller_Action{
   	function validateAction(){
       $errorCodeArray=array();
-
          $errorCompanyCode="";
          $errorPurchasingOrg="";
          $sessionCompanyCode = new Zend_Session_Namespace('session');
@@ -72,7 +71,6 @@ else{
          //public   function companyCodeValidate(){
         
     }
-
     public static function errorCodeFunc(array $error){
       $errorCode=array();
       $validatorComCode = new Zend_Validate_Regex(array('pattern' => '/^[0-9]{4}$/'));
@@ -114,4 +112,3 @@ else{
                 return $errorCode;
             }
   }
-
