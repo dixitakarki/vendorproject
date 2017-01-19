@@ -1,2 +1,4 @@
 library/
 *.sql
+composer.lock
+vendor/
