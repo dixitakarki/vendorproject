@@ -39,6 +39,7 @@ label {
   font-size: 26px;
   font-weight: bolder;
   margin: 30px;
+  color: #9e241b;
 }
 .panel-login>.panel-heading {
   color: #848c9d;
@@ -86,6 +87,7 @@ label {
   border-bottom: 1px solid #e7e7e7;
   border-radius: 0px;
   padding: 6px 0px;
+  color: black;
 }
 .panel-login input:hover,
 .panel-login input:focus {
